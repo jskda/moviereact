@@ -5,9 +5,6 @@ const axios = require("axios");
 const app = express();
 app.use(express.json());
 
-const cors = require("cors");
-app.use(cors());
-
 const morgan = require("morgan");
 app.use(morgan("dev"));
 
@@ -40,12 +37,9 @@ app.get("/api/stats", async (req, res) => {
 // Эндпоинт: Получение списка фильмов
 app.get("/api/movies", async (req, res) => {
     try {
-        const { query } = req; // Получение параметров запроса из фронтенда
         const response = await axios.get(`${API_BASE_URL}/movies`, {
-            params: query,
-            headers: {
-                "Client-ID": CLIENT_ID,
-                "Authorization": `Bearer ${API_TOKEN}`,
+            params: {
+                api_token: process.env.API_TOKEN,
             },
         });
         res.json(response.data);
