@@ -5,6 +5,12 @@ const axios = require("axios");
 const app = express();
 app.use(express.json());
 
+const cors = require("cors");
+app.use(cors());
+
+const morgan = require("morgan");
+app.use(morgan("dev"));
+
 // Настройки API
 const API_BASE_URL = "https://portal.lumex.host/api";
 const CLIENT_ID = process.env.CLIENT_ID;
@@ -12,7 +18,7 @@ const API_TOKEN = process.env.API_TOKEN;
 
 // Проверка работы API
 app.get("/", (req, res) => {
-    res.send("Сервер для работы с балансером настроен и запущен.");
+    res.send("Сервер для работы c балансером настроен и запущен.");
 });
 
 // Эндпоинт: Получение статистики балансера
