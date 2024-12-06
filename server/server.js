@@ -1,10 +1,15 @@
 require("dotenv").config(); // Для работы с переменными окружения
+const axios = require('axios');
 const cors = require("cors");
 const express = require("express");
 const morgan = require("morgan");
 
 const app = express();
-app.use(cors());
+app.use(cors({
+    origin: 'https://moviereact-flame.vercel.app',
+    methods: ['GET', 'POST'],
+    allowedHeaders: ['Content-Type', 'Authorization'],
+}));
 app.use(express.json());
 app.use(morgan("dev"));
 
