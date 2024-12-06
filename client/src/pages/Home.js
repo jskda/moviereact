@@ -37,13 +37,9 @@ function Home({movies}) {
 
 <h1>Movies List</h1>
 <ul>
-  {movies && movies.length > 0 ? (
-    movies.map((movie, index) => (
-      <li key={index}>{movie.title}</li>
-    ))
-  ) : (
-    <li>Loading...</li>
-  )}
+  {movies.map((movie, index) => (
+    <li key={index}>{movie.ru_title}</li>  // Теперь используем 'ru_title'
+  ))}
 </ul>
       </section>
 
