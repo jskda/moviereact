@@ -1,11 +1,11 @@
 require("dotenv").config(); // Для работы с переменными окружения
-const express = require("express");
 const cors = require("cors");
+const express = require("express");
+const morgan = require("morgan");
 
 const app = express();
+app.use(cors());
 app.use(express.json());
-
-const morgan = require("morgan");
 app.use(morgan("dev"));
 
 // Настройки API
