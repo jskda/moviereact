@@ -39,29 +39,20 @@ app.get("/api/stats", async (req, res) => {
     }
 });
 
-app.get('/api/movies', (req, res) => {
-    res.json({
-      movies: [
-        { id: 1, title: 'Movie 1' },
-        { id: 2, title: 'Movie 2' },
-      ],
-    });
-  });
-
-// // Эндпоинт: Получение списка фильмов
-// app.get("/api/movies", async (req, res) => {
-//     try {
-//         const response = await axios.get(`${API_BASE_URL}/movies`, {
-//             params: {
-//                 api_token: process.env.API_TOKEN,
-//             },
-//         });
-//         res.json(response.data);
-//     } catch (error) {
-//         console.error("Ошибка при запросе списка фильмов:", error.response?.data || error.message);
-//         res.status(error.response?.status || 500).json({ error: "Ошибка при получении списка фильмов" });
-//     }
-// });
+// Эндпоинт: Получение списка фильмов
+app.get("/api/movies", async (req, res) => {
+    try {
+        const response = await axios.get(`${API_BASE_URL}/movies`, {
+            params: {
+                api_token: process.env.API_TOKEN,
+            },
+        });
+        res.json(response.data);
+    } catch (error) {
+        console.error("Ошибка при запросе списка фильмов:", error.response?.data || error.message);
+        res.status(error.response?.status || 500).json({ error: "Ошибка при получении списка фильмов" });
+    }
+});
 
 // Эндпоинт: Получение детальной информации о фильме
 app.get("/api/movie/:id", async (req, res) => {
