@@ -1,6 +1,6 @@
 import React from 'react';
 
-function Home() {
+function Home({movies}) {
   return (
     <div className="bg-gray-900 text-white min-h-screen">
       <header className="bg-gray-800 p-4 shadow-md">
@@ -21,6 +21,18 @@ function Home() {
         <div className="container mx-auto text-center">
           <h2 className="text-4xl font-bold mb-4">Discover Popular Movies</h2>
           <p className="text-gray-300">Explore the best movies available on our platform.</p>
+        </div>
+      </section>
+
+      <section className="container mx-auto py-8">
+        <h3 className="text-3xl font-bold mb-6">Latest Movies</h3>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <h1>Movies List</h1>
+            <ul>
+              {movies.map((movie, index) => (
+                <li key={index}>{movie}</li>
+              ))}
+            </ul>
         </div>
       </section>
 
