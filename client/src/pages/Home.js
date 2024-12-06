@@ -37,10 +37,16 @@ function Home({movies}) {
 
 <h1>Movies List</h1>
 <ul>
-  {movies.map((movie, index) => (
-    <li key={index}>{movie.ru_title}</li>  // Теперь используем 'ru_title'
-  ))}
+  {movies && movies.length > 0 ? (
+    movies.map((movie, index) => (
+      <li key={index}>{movie.ru_titletitle}</li>
+    ))
+  ) : (
+    <li>Loading...</li>
+  )}
 </ul>
+
+
       </section>
 
       <section className="container mx-auto py-8">
