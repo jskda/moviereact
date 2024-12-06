@@ -4,7 +4,12 @@ const cors = require("cors");
 
 const app = express();
 app.use(express.json());
-app.use(cors());
+app.use(cors({
+    origin: 'https://moviereact-flame.vercel.app', // Указываем домен Vercel
+    methods: ['GET', 'POST', 'PUT', 'DELETE'], // Разрешённые методы
+    allowedHeaders: ['Content-Type', 'Authorization'] // Разрешённые заголовки
+}
+));
 const morgan = require("morgan");
 app.use(morgan("dev"));
 
