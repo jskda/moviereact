@@ -9,6 +9,7 @@ function App() {
 
   // Используем useEffect для получения данных с API
   useEffect(() => {
+    console.log('API URL:', API_URL);
     fetch(`${API_URL}/api/movies`)
       .then((res) => res.json())
       .then((data) => {
