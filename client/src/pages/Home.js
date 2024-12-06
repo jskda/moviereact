@@ -26,14 +26,25 @@ function Home({movies}) {
 
       <section className="container mx-auto py-8">
         <h3 className="text-3xl font-bold mb-6">Latest Movies</h3>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        {/* <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           <h1>Movies List</h1>
             <ul>
               {movies.map((movie, index) => (
                 <li key={index}>{movie}</li>
               ))}
             </ul>
-        </div>
+        </div> */}
+
+<h1>Movies List</h1>
+<ul>
+  {movies && movies.length > 0 ? (
+    movies.map((movie, index) => (
+      <li key={index}>{movie.title}</li>
+    ))
+  ) : (
+    <li>Loading...</li>
+  )}
+</ul>
       </section>
 
       <section className="container mx-auto py-8">
