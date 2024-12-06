@@ -39,7 +39,7 @@ function Home({movies}) {
 <ul>
   {movies && movies.length > 0 ? (
     movies.map((movie, index) => (
-      <li key={index}>{movie.ru_titletitle}</li>
+      <li key={index}>{movie.ru_title}</li>
     ))
   ) : (
     <li>Loading...</li>
