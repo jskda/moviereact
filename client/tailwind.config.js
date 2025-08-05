@@ -1,11 +1,15 @@
-/** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: [
-    "./src/**/*.{js,jsx,ts,tsx}"
+  purge: [
+    "./src/**/*.{js,jsx,ts,tsx}",
+    "./public/index.html"
   ],
+  content: [
+    "./src/**/*.{js,jsx,ts,tsx}",
+    "./public/index.html"
+  ],
+  important: true, // Добавьте эту строку для приоритета стилей
   theme: {
     extend: {},
   },
   plugins: [],
 }
-
